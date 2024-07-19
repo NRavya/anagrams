@@ -1,0 +1,77 @@
+import nltk
+from nltk import word_tokenize
+from nltk import bigrams
+
+# Download the necessary NLTK resources
+nltk.download('punkt')
+
+# Sample text corpus
+text_corpus = """
+Natural language processing (NLP) is a field of artificial intelligence 
+that focuses on the interaction between computers and humans through natural language. 
+The ultimate objective of NLP is to read, decipher, understand, and make sense of human languages in a valuable way.
+"""
+
+# Tokenizing the text into words
+tokens = word_tokenize(text_corpus)
+
+# Generating bigrams
+bigram_list = list(bigrams(tokens))
+
+# Displaying the bigrams
+print("Bigrams:")
+for bigram in bigram_list:
+    print(bigram)
+
+Output:
+Bigrams:
+('Natural', 'language')
+('language', 'processing')
+('processing', '(')
+('(', 'NLP')
+('NLP', ')')
+(')', 'is')
+('is', 'a')
+('a', 'field')
+('field', 'of')
+('of', 'artificial')
+('artificial', 'intelligence')
+('intelligence', 'that')
+('that', 'focuses')
+('focuses', 'on')
+('on', 'the')
+('the', 'interaction')
+('interaction', 'between')
+('between', 'computers')
+('computers', 'and')
+('and', 'humans')
+('humans', 'through')
+('through', 'natural')
+('natural', 'language')
+('language', '.')
+('.', 'The')
+('The', 'ultimate')
+('ultimate', 'objective')
+('objective', 'of')
+('of', 'NLP')
+('NLP', 'is')
+('is', 'to')
+('to', 'read')
+('read', ',')
+(',', 'decipher')
+('decipher', ',')
+(',', 'understand')
+('understand', ',')
+(',', 'and')
+('and', 'make')
+('make', 'sense')
+('sense', 'of')
+('of', 'human')
+('human', 'languages')
+('languages', 'in')
+('in', 'a')
+('a', 'valuable')
+('valuable', 'way')
+('way', '.')
+[nltk_data] Downloading package punkt to /root/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
