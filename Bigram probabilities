@@ -1,0 +1,43 @@
+from collections import defaultdict
+
+# Sample text corpus
+corpus = [
+    "I am Sam",
+    "Sam I am",
+    "I do not like green eggs and ham"
+]
+
+# Initialize counters
+bigram_counts = defaultdict(int)
+unigram_counts = defaultdict(int)
+
+# Process each sentence in the corpus
+for sentence in corpus:
+    words = sentence.lower().split()  # Tokenize and convert to lowercase
+    for i in range(len(words) - 1):
+        bigram_counts[(words[i], words[i + 1])] += 1
+        unigram_counts[words[i]] += 1
+    unigram_counts[words[-1]] += 1  # Count the last word
+
+# Calculate bigram probabilities
+bigram_probabilities = {}
+for (w1, w2), count in bigram_counts.items():
+    bigram_probabilities[(w1, w2)] = count / unigram_counts[w1]
+
+# Display the bigram probabilities
+print("Bigram Probabilities:")
+for bigram, prob in bigram_probabilities.items():
+    print(f"P({bigram[1]} | {bigram[0]}) = {prob:.2f}")
+
+Output:
+Bigram Probabilities:
+P(am | i) = 0.67
+P(sam | am) = 0.50
+P(i | sam) = 0.50
+P(do | i) = 0.33
+P(not | do) = 1.00
+P(like | not) = 1.00
+P(green | like) = 1.00
+P(eggs | green) = 1.00
+P(and | eggs) = 1.00
+P(ham | and) = 1.00
