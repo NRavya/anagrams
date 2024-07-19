@@ -1,0 +1,76 @@
+import nltk
+from nltk import word_tokenize
+from nltk import trigrams
+
+# Download the necessary NLTK resources
+nltk.download('punkt')
+
+# Sample text corpus
+text_corpus = """
+Natural language processing (NLP) is a field of artificial intelligence 
+that focuses on the interaction between computers and humans through natural language. 
+The ultimate objective of NLP is to read, decipher, understand, and make sense of human languages in a valuable way.
+"""
+
+# Tokenizing the text into words
+tokens = word_tokenize(text_corpus)
+
+# Generating trigrams
+trigram_list = list(trigrams(tokens))
+
+# Displaying the trigrams
+print("Trigrams:")
+for trigram in trigram_list:
+    print(trigram)
+
+Output:
+Trigrams:
+('Natural', 'language', 'processing')
+('language', 'processing', '(')
+('processing', '(', 'NLP')
+('(', 'NLP', ')')
+('NLP', ')', 'is')
+(')', 'is', 'a')
+('is', 'a', 'field')
+('a', 'field', 'of')
+('field', 'of', 'artificial')
+('of', 'artificial', 'intelligence')
+('artificial', 'intelligence', 'that')
+('intelligence', 'that', 'focuses')
+('that', 'focuses', 'on')
+('focuses', 'on', 'the')
+('on', 'the', 'interaction')
+('the', 'interaction', 'between')
+('interaction', 'between', 'computers')
+('between', 'computers', 'and')
+('computers', 'and', 'humans')
+('and', 'humans', 'through')
+('humans', 'through', 'natural')
+('through', 'natural', 'language')
+('natural', 'language', '.')
+('language', '.', 'The')
+('.', 'The', 'ultimate')
+('The', 'ultimate', 'objective')
+('ultimate', 'objective', 'of')
+('objective', 'of', 'NLP')
+('of', 'NLP', 'is')
+('NLP', 'is', 'to')
+('is', 'to', 'read')
+('to', 'read', ',')
+('read', ',', 'decipher')
+(',', 'decipher', ',')
+('decipher', ',', 'understand')
+(',', 'understand', ',')
+('understand', ',', 'and')
+(',', 'and', 'make')
+('and', 'make', 'sense')
+('make', 'sense', 'of')
+('sense', 'of', 'human')
+('of', 'human', 'languages')
+('human', 'languages', 'in')
+('languages', 'in', 'a')
+('in', 'a', 'valuable')
+('a', 'valuable', 'way')
+('valuable', 'way', '.')
+[nltk_data] Downloading package punkt to /root/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
