@@ -1,0 +1,65 @@
+#unigram 
+import nltk
+from nltk import word_tokenize
+from nltk.probability import FreqDist
+
+
+nltk.download('punkt')
+
+
+text_corpus = """
+Natural language processing (NLP) is a field of artificial intelligence 
+that focuses on the interaction between computers and humans through natural language. 
+The ultimate objective of NLP is to read, decipher, understand, and make sense of human languages in a valuable way.
+"""
+
+tokens = word_tokenize(text_corpus)
+
+
+unigrams = [word.lower() for word in tokens if word.isalpha()]  # Filter out punctuation and convert to lowercase
+
+
+freq_dist = FreqDist(unigrams)
+
+
+print("Unigrams and their frequencies:")
+for unigram, freq in freq_dist.items():
+    print(f"{unigram}: {freq}")
+
+Output :
+[nltk_data] Downloading package punkt to /root/nltk_data...
+[nltk_data]   Unzipping tokenizers/punkt.zip.
+Unigrams and their frequencies:
+natural: 2
+language: 2
+processing: 1
+nlp: 2
+is: 2
+a: 2
+field: 1
+of: 3
+artificial: 1
+intelligence: 1
+that: 1
+focuses: 1
+on: 1
+the: 2
+interaction: 1
+between: 1
+computers: 1
+and: 2
+humans: 1
+through: 1
+ultimate: 1
+objective: 1
+to: 1
+read: 1
+decipher: 1
+understand: 1
+make: 1
+sense: 1
+human: 1
+languages: 1
+in: 1
+valuable: 1
+way: 1
